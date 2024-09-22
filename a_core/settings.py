@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'a_home',
     'a_users',
     'django_htmx',
+    'a_rtchat',
 ]
 
 MIDDLEWARE = [
