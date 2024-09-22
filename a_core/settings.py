@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^!)1npqderda*($8-8m7k3h8==jimz^l2i)8*uu%^n@z730f!6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True    
+DEBUG = True 
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1','*']
 
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['localhost','127.0.0.1','*']
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -86,8 +87,16 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'a_core.wsgi.application'
+# WSGI_APPLICATION = 'a_core.wsgi.application'
 
+ASGI_APPLICATION = 'a_core.asgi.application'
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        "BACKEND":"channels.layers.InMemoryChannelLayer",
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
